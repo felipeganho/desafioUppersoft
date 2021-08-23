@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Pessoa;
 
 class PessoaController extends Controller
 {
@@ -13,7 +14,8 @@ class PessoaController extends Controller
      */
     public function index()
     {
-        //
+        $pessoas = Pessoa::all();
+        return view('pessoa.listagem',  compact('pessoas'));
     }
 
     /**
@@ -23,7 +25,7 @@ class PessoaController extends Controller
      */
     public function create()
     {
-        //
+        return view('pessoa.formulario');
     }
 
     /**
@@ -34,7 +36,10 @@ class PessoaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pessoa = $request->all();
+        Pessoa::create($pessoa);
+
+        return redirect(route('listagem'));
     }
 
     /**
@@ -45,7 +50,9 @@ class PessoaController extends Controller
      */
     public function show($id)
     {
-        //
+        $pessoa = Pessoa::find($id);
+
+        return view('pessoa.detalhes')->with('pessoa', $pessoa);
     }
 
     /**
@@ -56,7 +63,8 @@ class PessoaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $pessoa = Pessoa::find($id);
+        return view('pessoa.editar', compact('pessoa'));
     }
 
     /**
@@ -68,7 +76,11 @@ class PessoaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $pessoa = Pessoa::find($id);
+        $dados = $request->all();
+        $pessoa->update($dados);
+
+        return redirect(route('listagem'));
     }
 
     /**
@@ -79,6 +91,9 @@ class PessoaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $pessoa = Pessoa::find($id);
+        $pessoa->delete();
+
+        return redirect(route('listagem'));
     }
 }
