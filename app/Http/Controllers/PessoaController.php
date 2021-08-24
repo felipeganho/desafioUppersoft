@@ -38,7 +38,6 @@ class PessoaController extends Controller
     {
         $pessoa = $request->all();
         Pessoa::create($pessoa);
-
         return redirect(route('listagem'));
     }
 
@@ -51,7 +50,6 @@ class PessoaController extends Controller
     public function show($id)
     {
         $pessoa = Pessoa::find($id);
-
         return view('pessoa.detalhes')->with('pessoa', $pessoa);
     }
 
@@ -79,7 +77,6 @@ class PessoaController extends Controller
         $pessoa = Pessoa::find($id);
         $dados = $request->all();
         $pessoa->update($dados);
-
         return redirect(route('listagem'));
     }
 
@@ -93,7 +90,6 @@ class PessoaController extends Controller
     {
         $pessoa = Pessoa::find($id);
         $pessoa->delete();
-
         return redirect(route('listagem'));
     }
 }

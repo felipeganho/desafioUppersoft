@@ -31,17 +31,18 @@
         </div>
         <div class="form-group">
             <label>Estado</label>
-            <select class="form-control" id="estado" name="estado">
+            <select class="form-control" id="estado" name="estado" required="">
                 <option>{{ $pessoa->estado }}</option>
             </select>
         </div>
         <div class="form-group">
             <label>Cidade</label>
-            <select class="form-control" id="cidade" name="cidade">
+            <select class="form-control" id="cidade" name="cidade" required="">
                 <option>{{ $pessoa->cidade }}</option>
             </select>
         </div>
         <button type="submit" class="btn btn-info btn-block">Atualizar</button>
+        <a type="button" class="btn btn-danger btn-block" href="{{ route('excluir', $pessoa->id) }}"> Excluir</a>
     </form>        
 @endsection
 

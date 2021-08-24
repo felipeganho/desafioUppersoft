@@ -6,36 +6,36 @@
         @csrf
         <div class="form-group">
             <label>Nome</label>
-            <input name="nome" class="form-control">
+            <input name="nome" class="form-control" required>
         </div>
         <div class="form-group">
             <label>CPF</label>
-            <input name="cpf" id="cpf" class="form-control">
+            <input name="cpf" id="cpf" class="form-control" required>
         </div>
         <div class="form-group">
             <label>Data de Nascimento</label>
-            <input type="date" name="dataNascimento" class="form-control">
+            <input type="date" name="dataNascimento" class="form-control" required>
         </div>
         <div class="form-group">
             <label>E-mail</label>
-            <input type="email" name="email" class="form-control">
+            <input type="email" name="email" class="form-control" required>
         </div>
         <div class="form-group">
             <label>Telefone</label>
-            <input name="telefone" id="telefone" class="form-control">
+            <input name="telefone" id="telefone" class="form-control" required>
         </div>
         <div class="form-group">
             <label>Logradouro</label>
-            <input name="logradouro" class="form-control">
+            <input name="logradouro" class="form-control" required>
         </div>
         <div class="form-group">
             <label>Estado</label>
-            <select class="form-control" id="estado" name="estado">
+            <select class="form-control" id="estado" name="estado" required="">
             </select>
         </div>
         <div class="form-group">
             <label>Cidade</label>
-            <select class="form-control" id="cidade" name="cidade">
+            <select class="form-control" id="cidade" name="cidade" required="">
                 <option>Selecione sua cidade</option>
             </select>
         </div>
