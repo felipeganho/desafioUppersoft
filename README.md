@@ -27,4 +27,5 @@ Inicie o servidor
     php artisan serve
     
 Acesse o browser e digite
+    
     localhost:8000
