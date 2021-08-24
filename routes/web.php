@@ -15,12 +15,15 @@ use App\Http\Controllers\PessoaController;
 */
 
 Route::get('/',[PessoaController::class, 'index'])->name('listagem');
-Route::get('/pessoas/mostra/{id}',[PessoaController::class, 'show']);
 
-Route::get('/pessoas/novo',[PessoaController::class, 'create'])->name('novo');
-Route::post('/pessoas/adiciona',[PessoaController::class, 'store']);
+Route::prefix('pessoas')->group(function () {
+    Route::get('/mostra/{id}',[PessoaController::class, 'show']);
+    Route::get('/novo',[PessoaController::class, 'create'])->name('novo');
+    Route::post('/adiciona',[PessoaController::class, 'store']);
+    Route::put('/editar/{id}',[PessoaController::class, 'update'])->name('editar');
+    Route::get('/alterar/{id}',[PessoaController::class, 'edit']);
+    Route::get('/remove/{id}',[PessoaController::class, 'destroy'])->name('excluir');
+});
 
-Route::put('/pessoas/editar/{id}',[PessoaController::class, 'update'])->name('editar');
-Route::get('/pessoas/alterar/{id}',[PessoaController::class, 'edit']);
 
-Route::get('/pessoas/remove/{id}',[PessoaController::class, 'destroy'])->name('excluir');
+
